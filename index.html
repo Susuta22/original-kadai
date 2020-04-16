@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang='ja'>
+  <head>
+    <meta charset='utf-8'>
+    <title>Photo album</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel='stylesheet' href='main.css'>
+    <link rel='stylesheet' href='magnific-popup.css'>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
+    
+  </head>
+  <body>
+    
+      <header>
+        <h1>Photo Album</h1>
+      </header>
+          <!--画像, slick使用-->
+        <div class='slides'>
+          <div><img src='slides/DSC_2553.JPG' alt='photo-1'></div>
+          <div><img src='slides/DSC_8004.JPG' alt='photo-2'></div>
+          <div><img src='slides/DSC_0066.JPG' alt='photo-3'></div>
+          <div><img src='slides/DSC_0486.JPG' alt='photo-4'></div>
+          <div><img src='slides/DSC_1838.JPG' alt='photo-5'></div>
+          <div><img src='slides/DSC_0225.JPG' alt='photo-6'></div>
+          <div><img src='slides/DSC_0022.JPG' alt='photo-7'></div>
+          <div><img src='slides/DSC_1400.JPG' alt='photo-8'></div>
+          <div><img src='slides/DSC_3680.JPG' alt='photo-9'></div>
+          <div><img src='slides/DSC_6155.JPG' alt='photo-10'></div>
+        </div>  
+      </div>
+        
+      <div class='main'>
+        <div class='section-header'>
+          <h2>Gallery</h2>
+        </div>
+        <div id='gallery'>
+          <div class='gallery-menu'>
+            
+            <div id='gallery-menu-1'
+              :class="{active: activeTab === 'west-europe'}"
+              @click="activeTab = 'west-europe'"
+            >
+              <p class='mb-0'><img src='DSC_0523.JPG' alt='west-europe'></p>
+              <p class='gallery-text'>西ヨーロッパ</p>
+            </div>
+        
+            <div id='gallery-menu-2'
+              :class="{active: activeTab === 'east-europe'}"
+              @click="activeTab = 'east-europe'"
+            >
+              <p class='mb-0'><img src='DSC_9385.JPG' alt='east-europe'></p>
+              <p class='gallery-text'>東ヨーロッパ</p>
+            </div>
+          
+            <div id='gallery-menu-3'
+              :class="{active: activeTab === 'west-asia'}"
+              @click="activeTab = 'west-asia'"
+            >
+              <p class='mb-0'><img src='DSC_7644.JPG' alt='west-asia'></p>
+              <p class='gallery-text'>中東・西アジア</p>
+            </div>
+          
+            <div id='gallery-menu-4'
+              :class="{active: activeTab === 'east-asia'}"
+              @click="activeTab = 'east-asia'"
+            >
+              <p class='mb-0'><img src='DSC_4458.JPG' alt='east-asia'></p>
+              <p class='gallery-text'>東アジア</p>
+            </div>
+          </div>
+          
+          <!--West Europe-->
+          <section class="gallery-content">
+            <section v-show="activeTab === 'west-europe'" id='west-europe-content'>
+              <p class='text-center'>西ヨーロッパの画像を表示中</p>
+              
+              <div id='we-photo__item' class='text-center'></div>
+              
+              <div id='we-template' class='we-template'>
+                <div class='we-photo'>
+                  <div class='photo-area'>
+                    <p class='mb-0'><a class='popup' href=''><img class='west-europe-image' alt=''></a></p>
+                    <p class='photo-text-area mb-0'>
+                      <p class='photo-country'></p>
+                      <p class='photo-city'></p>
+                      <p class='photo-information'></p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            
+            </section>
+            <!--East Europe-->
+            <section v-show="activeTab === 'east-europe'" id='east-europe-content'>
+              <p class='text-center'>東ヨーロッパの画像を表示中</p>
+              
+              <div id='ee-photo__item' class='text-center'></div>
+              
+              <div id='ee-template' class='ee-template'>
+                <div class='ee-photo'>
+                  <div class='photo-area'>
+                    <p class='mb-0'><a class='popup' href=''><img class='east-europe-image' alt=''></a></p>
+                    <p class='photo-text-area mb-0'>
+                      <p class='photo-country'></p>
+                      <p class='photo-city'></p>
+                      <p class='photo-information'></p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+            </section>
+            <!--West Asia-->
+            <section v-show="activeTab === 'west-asia'" id='west-asia-content'>
+              <p class='text-center'>中東・西アジアの画像を表示中</p>
+              
+              <div id='wa-photo__item' class='text-center'></div>
+              
+              <div id='wa-template' class='wa-template'>
+                <div class='wa-photo'>
+                  <div class='photo-area'>
+                    <p class='mb-0'><a class='popup' href=''><img class='west-asia-image' alt=''></a></p>
+                    <p class='photo-text-area mb-0'>
+                      <p class='photo-country'></p>
+                      <p class='photo-city'></p>
+                      <p class='photo-information'></p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <!--East Asia-->
+            <section v-show="activeTab === 'east-asia'" id='east-asia-content'>
+              <p class='text-center'>東アジアの画像を表示中</p>
+              
+              <div id='ea-photo__item' class='text-center'></div>
+              
+              <div id='ea-template' class='ea-template'>
+                <div class='ea-photo'>
+                  <div class='photo-area'>
+                    <p class='mb-0'><a class='popup' href=''><img class='east-asia-image' alt=''></a></p>
+                    <p class='photo-text-area mb-0'>
+                      <p class='photo-country'></p>
+                      <p class='photo-city'></p>
+                      <p class='photo-information'></p>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+            
+            
+            <!--<select id="selectarea" v-model="activeTab">
+              <option value="west-europe">西ヨーロッパ</option>
+              <option value="east-europe">東ヨーロッパ</option>
+              <option value="west-asia">中東・西アジア</option>
+              <option value="east-asia">東アジア</option>
+            </select>
+            
+            <form id='photo-form' class='form-group'>
+              <label>国名</label>
+                <input type='text' id='country' class='form-control' required>
+              <label>都市</label>  
+                <input type='text' id='city' class='form-control' required>
+              <label>情報</label>
+                <input type='text' id='information' class='form-control' required>
+                <input type='text' v-model='activeTab' class='form-control' id='select-area'>
+              <input type='file' id='select-photo'>
+              <button type='submit' id='add-photo'>登録</buton>
+            </form>
+            
+          </section>-->
+        </div>
+        </section>
+        
+      </div>
+      </div>
+    
+    <footer>
+      &copy; Y.S
+    </footer>
+      
+    <!--jquery, bootstrap, fontawesome, jquery.magnific-popup-->  
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/vue-gallery.js"></script>
+    
+  <!--firebase-->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-storage.js"></script>
+  
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyBeGpU1n9sLPNpt_-TSO0aO4Of0P8qqhts",
+        authDomain: "photo-album-1f123.firebaseapp.com",
+        databaseURL: "https://photo-album-1f123.firebaseio.com",
+        projectId: "photo-album-1f123",
+        storageBucket: "photo-album-1f123.appspot.com",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="jquery.magnific-popup.min.js"></script>
+    
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src='main.js'></script>
+  </body>
+</html>
